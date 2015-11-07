@@ -15,6 +15,7 @@ extern "C" {
 #include <stdbool.h>
 #include <time.h>
 
+int setBackupStamp(char *dst, size_t size, const char *base, const char *hostname, const struct tm *tm);
 struct tm *getCurrentTime(bool local);
 int getConfigFile(char *dst, size_t size, const char *prefix, const char *postfix);
 

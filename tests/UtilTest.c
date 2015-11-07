@@ -6,6 +6,7 @@
  * CUnit Test Suite
  */
 
+int setBackupStampSuite();
 int getConfigFileSuite();
 int getCurrenTimeSuite();    
 
@@ -14,6 +15,7 @@ int main() {
     if (CUE_SUCCESS != CU_initialize_registry())
         return CU_get_error();
     
+    setBackupStampSuite();
     getConfigFileSuite();
     getCurrenTimeSuite();
 

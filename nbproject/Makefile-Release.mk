@@ -84,7 +84,7 @@ ${OBJECTDIR}/main.o: main.cpp
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/UtilTest.o ${TESTDIR}/tests/getConfigFileTest.o ${TESTDIR}/tests/getCurrentTimeTest.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/UtilTest.o ${TESTDIR}/tests/getConfigFileTest.o ${TESTDIR}/tests/getCurrentTimeTest.o ${TESTDIR}/tests/setBackupStampTest.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} -lcunit 
 
@@ -105,6 +105,12 @@ ${TESTDIR}/tests/getCurrentTimeTest.o: tests/getCurrentTimeTest.c
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/getCurrentTimeTest.o tests/getCurrentTimeTest.c
+
+
+${TESTDIR}/tests/setBackupStampTest.o: tests/setBackupStampTest.c 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/setBackupStampTest.o tests/setBackupStampTest.c
 
 
 ${OBJECTDIR}/backup-util_nomain.o: ${OBJECTDIR}/backup-util.o backup-util.c 

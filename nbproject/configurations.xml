@@ -27,6 +27,7 @@
         <itemPath>tests/UtilTest.c</itemPath>
         <itemPath>tests/getConfigFileTest.c</itemPath>
         <itemPath>tests/getCurrentTimeTest.c</itemPath>
+        <itemPath>tests/setBackupStampTest.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -74,6 +75,8 @@
       </item>
       <item path="tests/getCurrentTimeTest.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="tests/setBackupStampTest.c" ex="false" tool="0" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -114,6 +117,8 @@
       <item path="tests/getConfigFileTest.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/getCurrentTimeTest.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tests/setBackupStampTest.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

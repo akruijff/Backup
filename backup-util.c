@@ -7,6 +7,22 @@
 
 #include "backup-util.h"
 
+int setBackupStamp(char *dst, size_t size, const char *base, const char *hostname, const struct tm *tm) {
+    if (dst == NULL)
+        return 1;
+    if (base == NULL)
+        return 2;
+    if (size < strlen(base) + 22)
+        return 3;
+    if (hostname == NULL)
+        return 4;
+    if (tm == NULL)
+        return 5;
+    sprintf(dst, "%s/%s_%04i-%02i-%02i_%02i-%02i-%02i", base, hostname, 
+            1900 + tm->tm_year, tm->tm_mon, tm->tm_mday, tm->tm_hour, tm->tm_min, tm->tm_sec);
+    return 0;
+}
+
 struct tm *getCurrentTime(bool local) {
     time_t clock;
     time(&clock);
