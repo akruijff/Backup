@@ -24,7 +24,9 @@
                      displayName="Backup Test"
                      projectFiles="true"
                      kind="TEST">
+        <itemPath>tests/UtilTest.c</itemPath>
         <itemPath>tests/getConfigFileTest.c</itemPath>
+        <itemPath>tests/getCurrentTimeTest.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -66,7 +68,11 @@
       </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="tests/UtilTest.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="tests/getConfigFileTest.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tests/getCurrentTimeTest.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -103,7 +109,11 @@
       </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="tests/UtilTest.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="tests/getConfigFileTest.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tests/getCurrentTimeTest.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

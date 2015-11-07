@@ -12,6 +12,10 @@
 extern "C" {
 #endif
 
+#include <stdbool.h>
+#include <time.h>
+
+struct tm *getCurrentTime(bool local);
 int getConfigFile(char *dst, size_t size, const char *prefix, const char *postfix);
 
 #ifdef	__cplusplus

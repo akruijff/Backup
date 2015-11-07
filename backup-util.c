@@ -7,6 +7,12 @@
 
 #include "backup-util.h"
 
+struct tm *getCurrentTime(bool local) {
+    time_t clock;
+    time(&clock);
+    return local ? localtime(&clock) : gmtime(&clock);
+}
+
 size_t copyPrefix(char *dst, size_t size, const char *prefix);
 size_t copyHostname(char *dst, size_t size);
 size_t copyPostfix(char *dst, size_t size, const char *postfix);

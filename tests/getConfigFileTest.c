@@ -17,11 +17,11 @@
  * CUnit Test Suite
  */
 
-int init_suite(void) {
+int init_getConfigFileSuite(void) {
     return 0;
 }
 
-int clean_suite(void) {
+int clean_getConfigFileSuite(void) {
     return 0;
 }
 
@@ -79,15 +79,9 @@ void getConfigFile_LargeDestination_ReturnsSuccess() {
     CU_ASSERT_EQUAL(0, memcmp(buffer2 + 4 + strlen(buffer1), "-foo", 4));
 }
 
-int main() {
-    CU_pSuite pSuite = NULL;
-
-    /* Initialize the CUnit test registry */
-    if (CUE_SUCCESS != CU_initialize_registry())
-        return CU_get_error();
-
+int getConfigFileSuite() {
     /* Add a suite to the registry */
-    pSuite = CU_add_suite("backup util test", init_suite, clean_suite);
+    CU_pSuite pSuite = CU_add_suite("getConfigFile test", init_getConfigFileSuite, clean_getConfigFileSuite);
     if (NULL == pSuite) {
         CU_cleanup_registry();
         return CU_get_error();
@@ -104,10 +98,5 @@ int main() {
         CU_cleanup_registry();
         return CU_get_error();
     }
-            
-    /* Run all tests using the CUnit Basic interface */
-    CU_basic_set_mode(CU_BRM_VERBOSE);
-    CU_basic_run_tests();
-    CU_cleanup_registry();
     return CU_get_error();
 }

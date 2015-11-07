@@ -84,15 +84,27 @@ ${OBJECTDIR}/main.o: main.cpp
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/getConfigFileTest.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/UtilTest.o ${TESTDIR}/tests/getConfigFileTest.o ${TESTDIR}/tests/getCurrentTimeTest.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} -lcunit 
+
+
+${TESTDIR}/tests/UtilTest.o: tests/UtilTest.c 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/UtilTest.o tests/UtilTest.c
 
 
 ${TESTDIR}/tests/getConfigFileTest.o: tests/getConfigFileTest.c 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/getConfigFileTest.o tests/getConfigFileTest.c
+
+
+${TESTDIR}/tests/getCurrentTimeTest.o: tests/getCurrentTimeTest.c 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/getCurrentTimeTest.o tests/getCurrentTimeTest.c
 
 
 ${OBJECTDIR}/backup-util_nomain.o: ${OBJECTDIR}/backup-util.o backup-util.c 
